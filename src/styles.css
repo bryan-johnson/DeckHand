@@ -1,1 +1,115 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: Roboto, 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: #404c51;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1em;
+}
+div {
+    display: block;
+}
+.wrapper {
+    padding: 0;
+}
+
+.wrapper .topbar {
+    background-color: #607D8B;
+    position: fixed;
+    width: 100%;
+    height: 75px;
+    box-sizing: border-box;
+    color: #fff;
+    z-index: 100;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+}
+.wrapper .topbar .topbar-left {
+    box-sizing: border-box;
+    padding: 20px;
+    height: 75px;
+    width: 250px;
+    background-color: #455A64;
+    float: left;
+    box-shadow: 3px 0 6px rgba(0,0,0,.3);
+}
+.wrapper .topbar .topbar-right {
+    padding: 15px;
+    position: relative;
+}
+.wrapper .topbar .topbar-right #menu-button:hover {
+    transform: scale(1.2);
+}
+.wrapper .topbar .topbar-right #menu-button {
+    color: #ffffff;
+    display: inline-block;
+    vertical-align: middle;
+    height: 36px;
+    margin-right: 10px;
+    position: relative;
+    left: -16px;
+    top: 3px;
+    background-color: #03A9F4;
+    border-radius: 50%;
+    transition: all .3s;
+    box-shadow: 0 3px 10px rgba(0,0,0,.23), 0 3px 10px rgba(0,0,0,.16);
+}
+@media (min-width: 500px) {
+    .wrapper.sidebar-inactive .topbar .topbar-right #menu-button i {
+        transform: rotate(180deg);
+    }
+}
+.wrapper .topbar .topbar-right #menu-button i {
+    display: inline-block;
+    color: #ffffff;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-align: center;
+    text-indent: 0;
+    transition: all .3s;
+    font-size: 36px;
+}
+
+@media (min-width: 500px) {
+    .wrapper.sidebar-inactive .sidebar {
+        margin-left: -250px;
+    }
+}
+.wrapper .sidebar {
+    overflow: auto;
+    position: fixed;
+    top: 75px;
+    height: 100%;
+    z-index: 99;
+    background: linear-gradient(180deg, #FFFFFF 0, #BDBDBD);
+    width: 250px;
+    box-shadow: 3px 0 6px 0 rgba(0,0,0,.3);
+    transition: margin-left .3s;
+}
+
+@media (min-width: 500px) {
+    .wrapper.sidebar-inactive .content {
+        margin-left: 0;
+    }
+}
+.wrapper .content {
+    transition: margin-left .3s;
+    margin-left: 250px;
+    padding: 91px 16px 16px 16px;
+    background-color: #fff;
+}
+
+.dark-primary-color    { background: #455A64; }
+.default-primary-color { background: #607D8B; }
+.light-primary-color   { background: #CFD8DC; }
+.text-primary-color    { color: #FFFFFF; }
+.dark-accent-color     { background: #0288D1; }
+.accent-color          { background: #03A9F4; }
+.light-accent-color    { background: #B3E5FC; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #757575; }
+.divider-color         { border-color: #BDBDBD; }
