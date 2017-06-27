@@ -1,6 +1,10 @@
 <div class="ui-g">
   <div class="ui-g-12 ui-md-6 ui-lg-3">
-    <div class="card">card 1</div>
+    <div class="card">
+      <div class="ui-editor-container">
+        <p-editor [(ngModel)]="text" [style]="{'height':'210px'}"></p-editor>
+      </div>
+    </div>
   </div>
   <div class="ui-g-12 ui-md-6 ui-lg-3">
     <div class="card">card 2</div>

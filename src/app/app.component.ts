@@ -15,8 +15,7 @@ export class AppComponent {
   }
 
   toggleSidebar() {
-    if(this.sidebarInactive) this.sidebarInactive = false;
-    else this.sidebarInactive = true;
+    this.sidebarInactive = !this.sidebarInactive;
   }
 
 }

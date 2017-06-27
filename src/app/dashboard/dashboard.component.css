@@ -3,4 +3,6 @@
     border-radius: 2px;
     background: #ffffff;
     box-sizing: border-box;
+    min-height: 210px;
+    text-align: center;
 }
