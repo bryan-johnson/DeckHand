@@ -1,0 +1,29 @@
+<form [formGroup]="editForm" (ngSubmit)="submit(editForm.value)">
+    <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4">
+                Message: 
+            </div>
+            <div class="ui-grid-col-8">
+                <input formControlName="message" type="text" pInputTextarea [(ngModel)]="rem.message" />
+            </div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4">
+                Date and Time: 
+            </div>
+            <div class="ui-grid-col-8">
+                <p-calendar formControlName="datetime" [(ngModel)]="rem.datetime" [showTime]="true" [showIcon]="true" hourFormat="12">{{rem.datetime|date:'short'}}</p-calendar>
+            </div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-2"></div>
+            <div class="ui-grid-col-5">
+                <button pButton type="button" (click)="submit()" icon="fa-check" label="Submit"></button>
+            </div>
+            <div class="ui-grid-col-5">
+                <button pButton type="button" (click)="cancel()" icon="fa-close" label="Cancel"></button>
+            </div>
+        </div>
+    </div>
+</form>

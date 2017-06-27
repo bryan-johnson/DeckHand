@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Reminder, ReminderService } from "../shared/reminders/index";
 
 @Component({
   selector: 'app-schedule',
@@ -8,11 +9,29 @@ import { Component, OnInit } from '@angular/core';
 export class ScheduleComponent implements OnInit {
 
   events: any[];
+  reminders: Reminder[];
+  showEdit: boolean;
+  selectedReminder:any;
 
-  constructor() { }
+  constructor(private rs:ReminderService) { 
+    
+  }
 
   ngOnInit() {
+    this.showEdit = false;
     this.events = [{}];
+    this.reminders = this.rs.getReminders();
+  }
+
+  editReminder(rem:Reminder) {
+    this.selectedReminder = rem;
+    this.showEdit = !this.showEdit;
+  }
+  closeEdit(saved:boolean) {
+    this.showEdit = false;
+    if(saved) {
+      this.reminders = this.rs.getReminders();
+    }
   }
 
 }
