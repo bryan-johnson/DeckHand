@@ -1,0 +1,9 @@
+<p-dataTable [value]="entries" sortField="event" rowGroupMode="rowspan" [style]="{'margin-top':'25px'}" [editable]="true" (onEditComplete)="tableEdit($event)" (onEditInit)="editInit($event)">
+  <p-header>Lineup</p-header>
+  <p-column field="event" header="Event" sortable="true"></p-column>
+  <p-column field="swimmer" header="Entry" sortable="true" [editable]="true" [style]="{'overflow':'visible'}">
+    <ng-template pTemplate="editor" let-col let-event="rowData">
+      <p-dropdown [(ngModel)]="event[col.field]" [options]="team" [autoWidth]="false" [style]="{'width':'100%'}"></p-dropdown>
+    </ng-template>
+  </p-column>
+</p-dataTable>

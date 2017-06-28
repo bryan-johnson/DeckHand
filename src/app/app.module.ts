@@ -4,13 +4,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module'
-import { InputTextModule, ButtonModule, EditorModule, SharedModule, ScheduleModule, DataListModule, DialogModule, CalendarModule, InputTextareaModule, PanelModule } from 'primeng/primeng';
+import { InputTextModule, ButtonModule, EditorModule, SharedModule, ScheduleModule, DataListModule, DialogModule, CalendarModule, InputTextareaModule, PanelModule, CheckboxModule, DataTableModule, DropdownModule } from 'primeng/primeng';
 import { Reminder, ReminderService } from './shared/reminders/index';
+import { LineupService } from './shared/lineup/lineup.service';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ScheduleComponent } from './schedule/schedule.component';
-import { EditReminderComponent } from './schedule/edit-reminder.component';
+import { ScheduleComponent, EditReminderComponent, AddReminderComponent } from './schedule/index';
+import { LineupComponent } from './lineup/lineup.component';
 
 
 @NgModule({
@@ -18,7 +19,9 @@ import { EditReminderComponent } from './schedule/edit-reminder.component';
     AppComponent,
     DashboardComponent,
     ScheduleComponent,
-    EditReminderComponent
+    EditReminderComponent,
+    AddReminderComponent,
+    LineupComponent
   ],
   imports: [
     BrowserModule,
@@ -36,10 +39,14 @@ import { EditReminderComponent } from './schedule/edit-reminder.component';
     DialogModule,
     CalendarModule,
     InputTextareaModule,
-    PanelModule
+    PanelModule,
+    CheckboxModule,
+    DataTableModule,
+    DropdownModule
   ],
   providers: [
-    ReminderService
+    ReminderService,
+    LineupService
   ],
   bootstrap: [AppComponent]
 })

@@ -2,20 +2,32 @@
     background-color: #B3E5FC;
     color: #455A64;
 }
+.inactive {
+    background-color:lightgray;
+    color: gray;
+}
 .ui-grid-row {
     padding: 10px 5px 10px 5px;
     border-bottom: solid 1px #e3e9ea;
+    transition: .3s all;
+    word-wrap: normal;
+    cursor: default;
+}
+.ui-grid-row > .ui-grid-col-3 {
+    font-weight: bold;
+}
+.ui-grid-row.active:hover {
+    background-color: #43A9F4;
+    color: #ffffff;
+}
+.ui-grid-row i:hover {
+    transform: scale(1.2);
     transition: .2s all;
     cursor: pointer;
 }
-.ui-grid-row:hover {
-    background-color: #03A9F4;
-    color: #ffffff;
+.ui-grid-row i.fa-close:hover {
+    color: red;
 }
-.ui-grid-col-1 button {
-    background-color: green;
-}
-.ui-grid-col-1 button:hover {
-    background-color: green;
-;
+.ui-grid-row i.fa-pencil:hover {
+    color: firebrick;
 }

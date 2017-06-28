@@ -5,7 +5,7 @@
                 Message: 
             </div>
             <div class="ui-grid-col-8">
-                <input formControlName="message" type="text" pInputTextarea [(ngModel)]="rem.message" />
+                <textarea formControlName="message" type="text" pInputTextarea [(ngModel)]="this.messagePlaceholder"></textarea>
             </div>
         </div>
         <div class="ui-grid-row">
@@ -13,13 +13,21 @@
                 Date and Time: 
             </div>
             <div class="ui-grid-col-8">
-                <p-calendar formControlName="datetime" [(ngModel)]="rem.datetime" [showTime]="true" [showIcon]="true" hourFormat="12">{{rem.datetime|date:'short'}}</p-calendar>
+                <p-calendar formControlName="datetime" [(ngModel)]="this.datePlaceholder" [inline]="true" [showTime]="true" [showIcon]="true" hourFormat="12">{{rem.datetime|date:'short'}}</p-calendar>
+            </div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4">
+                Active? 
+            </div>
+            <div class="ui-grid-col-8">
+                <p-checkbox formControlName="active" binary="true" [(ngModel)]="this.activePlaceholder"></p-checkbox>
             </div>
         </div>
         <div class="ui-grid-row">
             <div class="ui-grid-col-2"></div>
             <div class="ui-grid-col-5">
-                <button pButton type="button" (click)="submit()" icon="fa-check" label="Submit"></button>
+                <button pButton type="submit" (click)="submit(editForm.value)" icon="fa-check" label="Submit"></button>
             </div>
             <div class="ui-grid-col-5">
                 <button pButton type="button" (click)="cancel()" icon="fa-close" label="Cancel"></button>

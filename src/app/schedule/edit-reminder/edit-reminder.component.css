@@ -1,0 +1,10 @@
+.ui-grid-row {
+    padding: 6px 6px 6px 6px;
+}
+.ui-grid-row > h3 {
+    margin-left: 0;
+    padding-right: 15px;
+}
+.ui-grid-row > .ui-grid-col-5 {
+    padding-top: 10px;
+}

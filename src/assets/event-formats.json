@@ -1,0 +1,14 @@
+{
+    "defaultFormat": [
+        { "event":"50 Freestyle", "swimmer":[""] },
+        { "event":"100 Freestyle", "swimmer":[""] },
+        { "event":"200 Freestyle", "swimmer":[""] },
+        { "event":"500 Freestyle", "swimmer":[""] },
+        { "event":"100 Butterfly", "swimmer":[""] },
+        { "event":"100 Breaststroke", "swimmer":[""] },
+        { "event":"100 Backstroke", "swimmer":[""] },
+        { "event":"200 Freestyle Relay", "swimmer":[""] },
+        { "event":"400 Freestyle Relay", "swimmer":[""] },
+        { "event":"200 Medley Relay", "swimmer":[""] }
+    ]
+}

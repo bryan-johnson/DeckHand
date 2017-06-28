@@ -5,3 +5,6 @@
     margin-left: 0;
     padding-right: 15px;
 }
+.ui-grid-row > .ui-grid-col-5 {
+    padding-top: 10px;
+}

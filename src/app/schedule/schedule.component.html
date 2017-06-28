@@ -3,24 +3,29 @@
     <p-schedule></p-schedule>
   </div>
   <div class="ui-g-12 ui-sm-12 ui-md-3 ui-lg-3">
-    <p-dataList [value]="reminders">
+    <p-dataList id="dataList" [value]="reminders">
       <p-header>Reminders</p-header>
+      <p-footer><button pButton type="button" (click)="addReminder()" icon="fa fa-plus-circle" style="background-color: green; margin-left: 92%;"></button></p-footer>
       <ng-template let-reminder pTemplate="item">
-        <div class="ui-grid-row" [ngClass]="{active: reminder.active}" (click)="editReminder(reminder)">
-          <div class="ui-grid-col-4">
-            {{reminder.datetime | date}}
+        <div class="ui-grid-row" [ngClass]="{active: reminder.active, inactive: !reminder.active}">
+          <div class="ui-grid-col-3">
+            {{reminder.datetime | date:'MMM dd h:mma'}}
           </div>
-          <div class="ui-grid-col-7">
+          <div class="ui-grid-col-8">
             {{reminder.message}}
           </div>
           <div class="ui-grid-col-1">
-            <button pButton type="button" icon="fa-check"></button>
+            <i class="fa fa-close" (click)="closeReminder(reminder)"></i>
+            <i class="fa fa-pencil" (click)="editReminder(reminder)"></i>
           </div>
         </div>
       </ng-template>
     </p-dataList>
   </div>
-  <p-dialog *ngIf="showEdit" header="Edit Reminder" [(visible)]="showEdit" [resizable]="true" [width]="auto" >
-    <edit-reminder [rId]="selectedReminder?.id" (done)="closeEdit($event)"></edit-reminder>
+  <p-dialog *ngIf="showEdit" header="Edit Reminder" [(visible)]="showEdit" [resizable]="true" [width]="auto" [dismissableMask]="true" [modal]="true">
+    <edit-reminder [rId]="selectedReminder?.id" (newRems)="closeEdit($event)"></edit-reminder>
+  </p-dialog>
+  <p-dialog *ngIf="showAdd" header="Add Reminder" [(visible)]="showAdd" [resizable]="true" [width]="auto" [dismissableMask]="true" [modal]="true">
+    <add-reminder (done)="closeAdd($event)"></add-reminder>
   </p-dialog>
 </div>
