@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module'
-import { InputTextModule, ButtonModule, EditorModule, SharedModule, ScheduleModule, DataListModule, DialogModule, CalendarModule, InputTextareaModule, PanelModule, CheckboxModule, DataTableModule, DropdownModule } from 'primeng/primeng';
+import { InputTextModule, ButtonModule, EditorModule, SharedModule, ScheduleModule, DataListModule, DialogModule, CalendarModule, InputTextareaModule, PanelModule, CheckboxModule, DataTableModule, DropdownModule, TabViewModule, MultiSelectModule, SpinnerModule } from 'primeng/primeng';
 import { Reminder, ReminderService } from './shared/reminders/index';
 import { LineupService } from './shared/lineup/lineup.service';
 
@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ScheduleComponent, EditReminderComponent, AddReminderComponent } from './schedule/index';
 import { LineupComponent } from './lineup/lineup.component';
+import { AddEntryComponent } from './lineup/add-entry/add-entry.component';
+import { PracticeComponent } from './practice/practice.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { LineupComponent } from './lineup/lineup.component';
     ScheduleComponent,
     EditReminderComponent,
     AddReminderComponent,
-    LineupComponent
+    LineupComponent,
+    AddEntryComponent,
+    PracticeComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,10 @@ import { LineupComponent } from './lineup/lineup.component';
     PanelModule,
     CheckboxModule,
     DataTableModule,
-    DropdownModule
+    DropdownModule,
+    TabViewModule,
+    MultiSelectModule,
+    SpinnerModule
   ],
   providers: [
     ReminderService,

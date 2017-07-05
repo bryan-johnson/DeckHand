@@ -1,0 +1,9 @@
+{
+    "team": [
+        {"name":"Beth", "gender":"F", "topPerformances":[{"event":"500 Freestyle", "time":"4:58.55"}]},
+        {"name":"Summer", "gender":"F", "topPerformances":[{"event":"200 Freestyle", "time":"1:55.20"}, {"event":"100 Butterfly", "time":"54:25"}]},
+        {"name":"Jerry", "gender":"M"},
+        {"name":"Rick", "gender":"M", "topPerformances":[{"event":"50 Freestyle", "time":"19.00"}, {"event":"100 Freestyle", "time":"44:32"}]},
+        {"name":"Morty", "gender":"M", "topPerformances":[{"event":"50 Freestyle", "time":"24.75"}, {"event":"100 Breaststroke", "time":"1:03.69"}, {"event":"100 Backstroke", "time":"59.30"}]}
+    ]
+}

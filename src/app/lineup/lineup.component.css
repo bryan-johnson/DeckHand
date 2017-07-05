@@ -1,0 +1,37 @@
+#eventEntries {
+    font-size: 16px;
+    padding:5px;
+    border-bottom:1px solid #D5D5D5;
+}
+#selectRow {
+    padding: 5px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+#selectRow > span {
+    padding-top: 5px;
+    padding-right: 10px;
+}
+#maxNumEntries {
+    padding-left: 20px;
+}
+.ui-tabview-nav {
+    background-color: #607D8B;
+}
+p-tabView {
+    padding: 3px;
+    margin-top: 15px;
+    border: 2px solid #D5D5D5;
+    border-radius: 6px;
+}
+#team {
+    padding-left: 5px;
+}
+.ui-grid-col-4  p-dataList  .ui-grid  .ui-grid-col-3, .ui-grid-col-4  p-dataList  .ui-grid  .ui-grid-col-1 {
+    color: #455A64;
+}
+.ui-grid-col-4 .ui-grid:hover {
+    cursor: pointer;
+    background-color: #CFD8DC;
+    transition: all .1s ease-out;
+}

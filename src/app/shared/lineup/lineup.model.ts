@@ -1,10 +1,11 @@
 export interface MeetEvent {
+    fullString: string;
     distance: number;
     stroke: string;
     relay: boolean;
 }
 export interface Performance {
-    event: MeetEvent;
+    event: string;
     time: string;
     date?: Date;
     meet?: string;
@@ -12,7 +13,7 @@ export interface Performance {
 export interface Swimmer {
     name: string;
     role?: string;
-    topEvents?: MeetEvent[];
+    topEvents?: string[];
     topPerformances?: Performance[];
     age?: number;
     year?: string;

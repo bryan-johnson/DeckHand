@@ -1,9 +1,67 @@
-<p-dataTable [value]="entries" sortField="event" rowGroupMode="rowspan" [style]="{'margin-top':'25px'}" [editable]="true" (onEditComplete)="tableEdit($event)" (onEditInit)="editInit($event)">
-  <p-header>Lineup</p-header>
-  <p-column field="event" header="Event" sortable="true"></p-column>
-  <p-column field="swimmer" header="Entry" sortable="true" [editable]="true" [style]="{'overflow':'visible'}">
-    <ng-template pTemplate="editor" let-col let-event="rowData">
-      <p-dropdown [(ngModel)]="event[col.field]" [options]="team" [autoWidth]="false" [style]="{'width':'100%'}"></p-dropdown>
-    </ng-template>
-  </p-column>
-</p-dataTable>
+<h2>Lineup Creator</h2>
+<hr>
+<div class="ui-grid ui-grid-responsive ui-fluid">
+  <div class="ui-grid-row" id="selectRow">
+    <span>Select Meet Format:</span>
+    <p-multiSelect [options]="eventList" [(ngModel)]="eventformat" defaultLabel="Select Meet Format" scrollHeight="300px" selectedItemsLabel="{0} events selected"></p-multiSelect>
+    <span id="maxNumEntries">Max Ind. Entries:</span>
+    <p-spinner size="15" [(ngModel)]="maxEntries" [min]="0" [max]="10" placeholder="Any Amount (0)"></p-spinner> 
+  </div>
+  <hr>
+  <div class="ui-grid-row">
+    <p-tabView *ngIf="entries">
+      <p-tabPanel *ngFor="let ev of eventformat" [header]="ev" [headerStyle]="{'font-size':'14px'}">
+        <p-dataList [value]="getEntries(ev)" emptyMessage="">
+          <ng-template let-entry pTemplate="item">
+            <div class="ui-grid-row" id="eventEntries">
+              {{entry.swimmer}}
+            </div>
+          </ng-template>
+        </p-dataList>
+        <button pButton type="button" label="Add Entry" style="font-size:16px;width:138px;margin-top:5px;" icon="fa fa-plus" (click)="openAddEntry(ev)"></button>
+      </p-tabPanel>
+    </p-tabView>
+  </div>
+  <div class="ui-grid-row">
+    <div class="ui-grid-col-8">
+      <p-dataTable [value]="entries" sortField="event" rowGroupMode="rowspan" [style]="{'margin-top':'25px'}" (onEditComplete)="tableEdit($event)" (onEditInit)="editInit($event)" resizableColumns="true" emptyMessage="Please Add Entries Above">
+        <p-header>Lineup</p-header>
+        <p-column field="event" header="Event" sortable="true"></p-column>
+        <p-column field="swimmer" header="Swimmer" sortable="true" [editable]="true" [style]="{'overflow':'visible'}"></p-column>
+      </p-dataTable>
+    </div>
+    <div class="ui-grid-col-4" id="team">
+      <p-dataList [value]="team" [style]="{'margin-top':'25px'}">
+        <p-header>Team List</p-header>
+        <ng-template let-person pTemplate="item">
+          <div class="ui-grid" style="font-size:16px;padding:5px;border-bottom:1px solid #D5D5D5">
+            <div class="ui-grid-row">
+              <div class="ui-grid-col-1" id="num-entries">
+                <span *ngIf="!maxEntries">(<b>{{numEntries(person.name)}}</b>)</span>
+                <span *ngIf="maxEntries">(<b>{{numEntries(person.name)}}/{{maxEntries}}</b>)</span>
+              </div>
+              <div class="ui-grid-col-3">
+                <b>{{person.name}}</b>
+              </div>
+              <div class="ui-grid-col-8">
+                <div *ngFor="let p of person.topPerformances">
+                  <div class="ui-grid">
+                    <div class="ui-grid-col-7">
+                      <span> {{p.event}}</span>
+                    </div>
+                    <div class="ui-grid-col-5">
+                      <span>{{p.time}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-dataList>
+    </div>
+  </div>
+  <p-dialog *ngIf="showAddEntry" header="Add Entry" [(visible)]="showAddEntry" [resizable]="true" [width]="800" [dismissableMask]="true" [modal]="true">
+    <add-entry [team]="team" [targetEvent]="selectedEvent" (newEntries)="handleAddEntry($event)"></add-entry>
+  </p-dialog>
+</div>

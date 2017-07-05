@@ -14,6 +14,12 @@ export class LineupService {
                     .then(res => <Entry[]>res.json().defaultFormat)
                     .then(data => {return data;});
     }
+    getTeam() {
+        return this.http.get('assets/team.json')
+                    .toPromise()
+                    .then(res => <Swimmer[]>res.json().team)
+                    .then(data => {return data;});
+    }
 
 
 }

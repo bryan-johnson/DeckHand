@@ -1,0 +1,20 @@
+<div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 0px 0px">
+  <div class="ui-grid-row">
+    <p-dataTable [value]="localTeam" [(selection)]="selected" dataKey="name" [paginator]="true" [rows]="8" sortField="gender" > 
+      <p-header>Available Entries for {{targetEvent}}</p-header>
+      <p-column [style]="{'width':'38px'}" selectionMode="multiple"></p-column>
+      <p-column field="name" header="Name" [sortable]="true"></p-column>
+      <p-column field="gender" header="Gender" [sortable]="true"></p-column>
+      <p-column field="topPerformances" header="Best Time" sortable="custom" (sortFunction)="sortTimes($event)">
+        <ng-template let-col let-swimmer="rowData" pTemplate="body">
+          <span *ngIf="getTime(swimmer)">
+            {{getTime(swimmer)}}
+          </span>
+        </ng-template>
+      </p-column>
+    </p-dataTable>
+  </div>
+  <div class="ui-grid-row">
+    <button pButton type="submit" label="Submit" (click)="submit()"></button>
+  </div>
+</div>
